@@ -1,0 +1,63 @@
+---
+// Header.astro
+const { currentPage } = Astro.props;
+---
+
+<header class="main-header">
+  <div class="logo">
+    <a href="/">
+      <img src="/images/logo.png" alt="Logo" class="logo-img" />
+    </a>
+  </div>
+
+  <nav class="main-nav">
+    <button class="burger-menu" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links">
+      <li>
+        <a href="/" class={currentPage === "home" ? "active" : ""}>Home</a>
+      </li>
+      <li>
+        <a href="/about" class={currentPage === "about" ? "active" : ""}
+          >About</a
+        >
+      </li>
+      <li>
+        <a href="/support" class={currentPage === "support" ? "active" : ""}
+          >Support</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  .logo {
+    flex: 1;
+    text-align: center; /* Centers the KidsAid logo */
+    z-index: 1000; /* Ensure the burger icon is on top */
+  }
+
+  .logo-img {
+    width: 180px; /* Adjust size as needed */
+    z-index: 1000; /* Ensure the burger icon is on top */
+  }
+
+  .burger-menu {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .nav-links {
+    display: none; /* Toggle visibility for burger menu */
+  }
+</style>
