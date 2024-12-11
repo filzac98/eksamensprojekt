@@ -1,5 +1,19 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+
+const heroImages = [
+  { src: "/images/mona_lisa2.webp", alt: "Mona Lisa with Cards 1" },
+  { src: "/images/mona_lisa3.webp", alt: "Mona Lisa with Cards 2" },
+  { src: "/images/mona_lisa1.webp", alt: "Mona Lisa with Cards 3" },
+];
 ---
 
-<MainLayout title="Dealers Grip" />
+<MainLayout title="Dealers Grip">
+  <!-- <ProductPage /> -->
+  <Hero
+    images={heroImages}
+    title="dealersgrip®"
+    subtitle="Crafted for the bold, designed for the refined – cards reimagined"
+  />
+</MainLayout>

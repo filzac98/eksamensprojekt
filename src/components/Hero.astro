@@ -1,0 +1,112 @@
+---
+const { images, title, subtitle } = Astro.props;
+---
+
+<section class="hero">
+  <!-- Menu and Cart Icons -->
+  <div class="hero-header">
+    <i class="fas fa-bars"></i>
+    <span class="menu-text">menu</span>
+    <i class="fas fa-shopping-bag"></i>
+  </div>
+
+  <!-- Image Grid -->
+  <div class="hero-images">
+    {
+      images.map((image) => (
+        <img src={image.src} alt={image.alt} class="hero-image" />
+      ))
+    }
+  </div>
+
+  <!-- Logo and Description -->
+  <div class="hero-footer">
+    <h1 class="hero-title">{title}</h1>
+    <p class="hero-subtitle">{subtitle}</p>
+  </div>
+
+  <!-- Arrow Icon -->
+  <div class="hero-arrow">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+
+  <style>
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .menu-text {
+      position: fixed; /* Positions relative to the viewport */
+      top: 3.4%; /* Top edge of the viewport */
+      left: 4%; /* Left edge of the viewport */
+      margin: 0;
+      padding: 0.5rem;
+      z-index: 10; /* Ensures it appears above other content */
+    }
+
+    .hero-images {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .hero-image {
+      max-width: 250px;
+      height: auto;
+    }
+
+    .hero-footer {
+      margin-top: 2rem;
+    }
+
+    .hero-title {
+      font-family: "Nunito", sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .hero-subtitle {
+      font-family: "Kantumruy Pro", sans-serif;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-arrow {
+      margin-top: 2rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-images {
+        flex-direction: column;
+      }
+
+      .hero-image {
+        max-width: 150px;
+      }
+    }
+  </style>
+</section>
