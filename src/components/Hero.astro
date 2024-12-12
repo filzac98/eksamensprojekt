@@ -3,13 +3,6 @@ const { images, title, subtitle } = Astro.props;
 ---
 
 <section class="hero">
-  <!-- Menu and Cart Icons -->
-  <div class="hero-header">
-    <i class="fas fa-bars"></i>
-    <span class="menu-text">menu</span>
-    <i class="fas fa-shopping-bag"></i>
-  </div>
-
   <!-- Image Grid -->
   <div class="hero-images">
     {
@@ -18,6 +11,19 @@ const { images, title, subtitle } = Astro.props;
       ))
     }
   </div>
+
+  <!-- Navigation List -->
+  <nav class="hero-nav">
+    <a href="/" class="nav-logo">
+      <img src="/images/logo.png" alt="Home" />
+    </a>
+    <ul class="nav-list">
+      <li><a href="/kiosk">KIOSK</a></li>
+      <li><a href="/explore">EXPLORE</a></li>
+      <li><a href="/archive">ARCHIVE</a></li>
+      <li><a href="/events">EVENTS</a></li>
+    </ul>
+  </nav>
 
   <!-- Logo and Description -->
   <div class="hero-footer">
@@ -29,84 +35,131 @@ const { images, title, subtitle } = Astro.props;
   <div class="hero-arrow">
     <i class="fas fa-chevron-down"></i>
   </div>
+</section>
 
-  <style>
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+<style>
+  .hero {
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .hero-images {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    position: relative; /* Relative positioning for the nav list */
+  }
+
+  .hero-image {
+    max-width: 250px;
+    height: auto;
+  }
+
+  /* Hero Navigation Styles */
+  .hero-nav {
+    position: absolute;
+    bottom: 10%;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /* Semi-transparent background */
+    border-radius: 8px;
+  }
+
+  .nav-logo img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-list li {
+    margin: 0.5rem 0;
+  }
+
+  .nav-list a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 1000;
+    font-size: 1rem;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .nav-list a:hover {
+    color: #c38156; /* Highlight color on hover */
+  }
+
+  /* Logo and Footer */
+  .hero-footer {
+    margin-top: 2rem;
+  }
+
+  .hero-title {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .hero-subtitle {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  /* Arrow Animation */
+  .hero-arrow {
+    margin-top: 2rem;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
     }
-
-    .hero-header {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 2rem;
-      margin-bottom: 1rem;
+    50% {
+      transform: translateY(-10px);
     }
+  }
 
-    .menu-text {
-      position: fixed; /* Positions relative to the viewport */
-      top: 3.4%; /* Top edge of the viewport */
-      left: 4%; /* Left edge of the viewport */
-      margin: 0;
-      padding: 0.5rem;
-      z-index: 10; /* Ensures it appears above other content */
-    }
-
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
     .hero-images {
-      display: flex;
-      gap: 1rem;
-      margin: 2rem 0;
+      flex-direction: column;
     }
 
     .hero-image {
-      max-width: 250px;
-      height: auto;
+      max-width: 150px;
     }
 
-    .hero-footer {
-      margin-top: 2rem;
+    .hero-nav {
+      bottom: 10%;
+      left: 5%;
+      padding: 0.5rem;
     }
 
-    .hero-title {
-      font-family: "Nunito", sans-serif;
-      font-size: 1.5rem;
-      font-weight: bold;
+    .nav-list a {
+      font-size: 0.875rem;
     }
-
-    .hero-subtitle {
-      font-family: "Kantumruy Pro", sans-serif;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .hero-arrow {
-      margin-top: 2rem;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-images {
-        flex-direction: column;
-      }
-
-      .hero-image {
-        max-width: 150px;
-      }
-    }
-  </style>
-</section>
+  }
+</style>
