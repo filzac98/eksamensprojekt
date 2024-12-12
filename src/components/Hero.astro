@@ -28,7 +28,15 @@ const { images, title, subtitle } = Astro.props;
   <!-- Logo and Description -->
   <div class="hero-footer">
     <h1 class="hero-title">{title}</h1>
-    <p class="hero-subtitle">{subtitle}</p>
+    <p class="hero-subtitle">
+      {
+        subtitle.map((line) => (
+          <>
+            {line} <br />
+          </>
+        ))
+      }
+    </p>
   </div>
 
   <!-- Arrow Icon -->
@@ -90,6 +98,7 @@ const { images, title, subtitle } = Astro.props;
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: left; /* Ensure the list is aligned to the left */
   }
 
   .nav-list li {
@@ -100,9 +109,11 @@ const { images, title, subtitle } = Astro.props;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 1000;
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: #333;
     transition: color 0.3s ease;
+    display: block; /* Ensure the link takes up the full width of the list item */
+    text-align: left; /* Explicitly align the text to the left */
   }
 
   .nav-list a:hover {
@@ -111,19 +122,26 @@ const { images, title, subtitle } = Astro.props;
 
   /* Logo and Footer */
   .hero-footer {
-    margin-top: 2rem;
+    margin-top: 2rem; /* Retain the current spacing from other elements */
+    position: relative; /* Enable positioning relative to its normal flow */
+    top: -90px; /* Adjust this value to move it higher */
+    left: 250px; /* Adjust this value to move it to the right */
+    text-align: center; /* Keep the text centered within the footer */
   }
-
   .hero-title {
-    font-family: "Nunito", sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.8rem;
+    font-weight: 400;
   }
 
   .hero-subtitle {
-    font-family: "Kantumruy Pro", sans-serif;
-    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: start;
+    font-size: 0.6rem;
     margin-top: 0.5rem;
+    position: relative;
+    top: -42px; /* Adjust this value to move it higher */
+    left: 5px;
   }
 
   /* Arrow Animation */
