@@ -23,6 +23,36 @@
     <li><a href="#">newsletter</a></li>
     <li><a href="#">about</a></li>
   </ul>
+  <div class="social-links">
+    <a
+      href="https://www.instagram.com/dealersgrip/"
+      target="_blank"
+      class="social-link"
+    >
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a
+      href="https://www.facebook.com/dealersgrip"
+      target="_blank"
+      class="social-link"
+    >
+      <i class="fab fa-facebook-square"></i>
+    </a>
+    <a
+      href="https://www.linkedin.com/in/oliversgrd/?originalSubdomain=dk"
+      target="_blank"
+      class="social-link"
+    >
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a
+      href="https://www.youtube.com/@dealersgrip"
+      target="_blank"
+      class="social-link"
+    >
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
 </nav>
 
 <script type="module" src="/src/script/burgerMenu.js"></script>
@@ -46,8 +76,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100; /* Ensure header is above nav menu */
-    background-color: rgb(255, 255, 255);
+    z-index: 102;
   }
 
   /* Burger Menu Container */
@@ -56,7 +85,7 @@
     align-items: center;
     gap: 1rem;
     cursor: pointer;
-    z-index: 102; /* Higher z-index to keep the burger menu on top of the nav */
+    z-index: 101; /* Higher z-index to keep the burger menu on top of the nav */
   }
 
   /* Burger Menu */
@@ -67,7 +96,7 @@
     gap: 6px;
     cursor: pointer;
     transition: color 0.3s;
-    z-index: 102; /* Keep it above the nav menu */
+    z-index: 103; /* Ensure it stays visible above nav-menu */
   }
 
   /* Burger Lines */
@@ -75,26 +104,39 @@
     height: 4px;
     background-color: black;
     border-radius: 2px;
-    z-index: 102; /* Keep it above the nav menu */
     transition: all 0.3s ease;
   }
 
-  /* Top Line */
   .top-line {
     width: 27px;
     align-self: flex-start;
+    transform-origin: top left;
   }
 
-  /* Middle Line */
   .middle-line {
     width: 40px;
     align-self: flex-end;
+    opacity: 1; /* Ensure visibility initially */
+    transition: opacity 0.3s ease;
   }
 
-  /* Bottom Line */
   .bottom-line {
     width: 27px;
     align-self: flex-end;
+    transform-origin: bottom left;
+  }
+
+  /* Active State for the Burger Lines */
+  .burger-menu.active .top-line {
+    transform: rotate(45deg) translate(1px, 1px); /* Rotate and shift to form the top of "X" */
+  }
+
+  .burger-menu.active .middle-line {
+    opacity: 0; /* Hide the middle line */
+  }
+
+  .burger-menu.active .bottom-line {
+    transform: rotate(-45deg) translate(-8px, -9px); /* Rotate and shift to form the bottom of "X" */
   }
 
   /* Menu Text */
@@ -102,7 +144,16 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     transition: color 0.3s;
-    z-index: 102; /* Keep it above the nav menu */
+    z-index: 10000;
+  }
+  /* When the burger menu is active, change the color */
+  .burger-menu.active .burger-line {
+    background-color: rgb(255, 255, 255);
+  }
+
+  /* When the menu text is active, change the color */
+  .menu-text.active {
+    color: rgb(255, 255, 255);
   }
 
   /* Cart Icon */
@@ -111,7 +162,6 @@
     cursor: pointer;
   }
 
-  /* Nav Menu - initially hidden */
   .nav-menu {
     display: none; /* Initially hidden */
     position: fixed;
@@ -121,25 +171,16 @@
     width: 300px; /* Adjust width */
     height: 100vh; /* Full height */
     padding: 2rem;
-    z-index: 50; /* Keep it below burger menu */
+    z-index: 51; /* Keep it below burger menu */
+    transform: translateX(-100%); /* Initially off-screen */
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in effect */
   }
 
   /* When the 'active' class is added, show the menu */
   .nav-menu.active {
-    display: block; /* Show when active */
+    display: block; /* Make it visible */
+    transform: translateX(0); /* Slide the menu in */
   }
-
-  /* When the burger menu is active, change the color */
-  .burger-menu.active .burger-line {
-    background-color: white;
-  }
-
-  /* When the menu text is active, change the color */
-  .menu-text.active {
-    color: white;
-  }
-
-  /* Nav List Styling */
   .nav-menu ul {
     margin-top: 20%;
     list-style-type: none;
@@ -158,9 +199,28 @@
   }
   .nav-menu .nav-logo {
     position: absolute;
-    top: 4rem; /* Position 1rem from the top */
+    top: 1rem; /* Position 1rem from the top */
     right: 1rem; /* Position 1rem from the right */
-    width: 60px; /* Adjust logo width */
+    width: 40px; /* Adjust logo width */
+  }
+
+  /* Social links */
+
+  .social-links {
+    margin-top: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .social-link {
+    color: #ffffff;
+    font-size: 38px;
+    text-decoration: none;
+  }
+
+  .social-link:hover {
+    color: var(--hover-color);
   }
 
   /* Responsive Adjustments */
@@ -175,10 +235,6 @@
 
     .cart-icon {
       font-size: 1.25rem;
-    }
-
-    .burger-line {
-      height: 3px; /* Thinner lines for smaller screens */
     }
   }
 </style>
