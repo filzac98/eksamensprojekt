@@ -47,25 +47,26 @@ const { images, title, subtitle } = Astro.props;
 
 <style>
   .hero {
-    margin-top: 7%;
+    margin-top: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 2rem;
-    position: relative;
   }
 
   .hero-images {
+    position: relative;
+    top: 10%;
     display: flex;
-    gap: 1rem;
+    gap: 2.2rem;
     margin: 2rem 0;
     position: relative; /* Relative positioning for the nav list */
   }
 
   .hero-image {
-    max-width: 250px;
+    max-width: 300px;
     height: auto;
   }
 
@@ -79,19 +80,12 @@ const { images, title, subtitle } = Astro.props;
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem;
-    background-color: rgba(
-      255,
-      255,
-      255,
-      0.8
-    ); /* Semi-transparent background */
-    border-radius: 8px;
   }
 
   .nav-logo img {
     width: 50px;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: -25%;
   }
 
   .nav-list {
@@ -109,8 +103,8 @@ const { images, title, subtitle } = Astro.props;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 1000;
-    font-size: 1.6rem;
-    color: #333;
+    font-size: 2rem;
+    color: #000000;
     transition: color 0.3s ease;
     display: block; /* Ensure the link takes up the full width of the list item */
     text-align: left; /* Explicitly align the text to the left */
@@ -124,29 +118,29 @@ const { images, title, subtitle } = Astro.props;
   .hero-footer {
     margin-top: 2rem; /* Retain the current spacing from other elements */
     position: relative; /* Enable positioning relative to its normal flow */
-    top: -90px; /* Adjust this value to move it higher */
-    left: 250px; /* Adjust this value to move it to the right */
+    top: -100px; /* Adjust this value to move it higher */
+    left: 320px; /* Adjust this value to move it to the right */
     text-align: center; /* Keep the text centered within the footer */
   }
   .hero-title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 400;
   }
 
   .hero-subtitle {
     font-family: Arial, Helvetica, sans-serif;
     text-align: start;
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     margin-top: 0.5rem;
     position: relative;
-    top: -42px; /* Adjust this value to move it higher */
+    top: -48px; /* Adjust this value to move it higher */
     left: 5px;
   }
 
   /* Arrow Animation */
   .hero-arrow {
-    margin-top: 2rem;
+    margin-top: -5rem;
     animation: bounce 2s infinite;
   }
 
