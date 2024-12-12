@@ -5,10 +5,27 @@
       <div class="burger-line middle-line"></div>
       <div class="burger-line bottom-line"></div>
     </div>
-    <span class="menu-text">menu</span>
+    <p class="menu-text">menu</p>
   </div>
-  <i class="fas fa-shopping-bag cart-icon"></i>
+  <i class="fas fa-shopping-bag cart-icon"> </i>
 </header>
+
+<!-- Add a nav list -->
+<nav class="nav-menu">
+  <a href="/">
+    <img src="/images/whitelogo.png" alt="Home" class="nav-logo" />
+  </a>
+  <ul>
+    <li><a href="#">kiosk</a></li>
+    <li><a href="#">archive</a></li>
+    <li><a href="#">explore</a></li>
+    <li><a href="#">contact</a></li>
+    <li><a href="#">newsletter</a></li>
+    <li><a href="#">about</a></li>
+  </ul>
+</nav>
+
+<script type="module" src="/src/script/burgerMenu.js"></script>
 
 <style>
   /* General Reset for Consistency */
@@ -29,60 +46,121 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
-    background-color: white;
+    z-index: 100; /* Ensure header is above nav menu */
+    background-color: rgb(255, 255, 255);
   }
 
   /* Burger Menu Container */
   .menu-icon {
     display: flex;
-    align-items: center; /* Align items (burger + text) horizontally */
-    gap: 1rem; /* Space between the burger and "menu" text */
+    align-items: center;
+    gap: 1rem;
     cursor: pointer;
+    z-index: 102; /* Higher z-index to keep the burger menu on top of the nav */
   }
 
   /* Burger Menu */
   .burger-menu {
+    position: relative;
     display: flex;
-    flex-direction: column; /* Stack the lines vertically */
-    gap: 6px; /* Space between the lines */
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 102; /* Keep it above the nav menu */
   }
 
   /* Burger Lines */
   .burger-line {
-    height: 4px; /* Thickness of the lines */
-    background-color: black; /* Line color */
-    border-radius: 2px; /* Rounded edges */
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    z-index: 102; /* Keep it above the nav menu */
+    transition: all 0.3s ease;
   }
 
   /* Top Line */
   .top-line {
-    width: 27px; /* Shorter top line */
-    align-self: flex-start; /* Align to the left */
+    width: 27px;
+    align-self: flex-start;
   }
 
   /* Middle Line */
   .middle-line {
-    width: 40px; /* Full-length middle line */
-    align-self: flex-end; /* Align to the right */
+    width: 40px;
+    align-self: flex-end;
   }
 
   /* Bottom Line */
   .bottom-line {
-    width: 27px; /* Shorter bottom line */
-    align-self: flex-end; /* Align to the right */
+    width: 27px;
+    align-self: flex-end;
   }
 
   /* Menu Text */
   .menu-text {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
+    transition: color 0.3s;
+    z-index: 102; /* Keep it above the nav menu */
   }
 
   /* Cart Icon */
   .cart-icon {
     font-size: 1.5rem;
     cursor: pointer;
+  }
+
+  /* Nav Menu - initially hidden */
+  .nav-menu {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0; /* Position on the left side */
+    background-color: #1c1c1e;
+    width: 300px; /* Adjust width */
+    height: 100vh; /* Full height */
+    padding: 2rem;
+    z-index: 50; /* Keep it below burger menu */
+  }
+
+  /* When the 'active' class is added, show the menu */
+  .nav-menu.active {
+    display: block; /* Show when active */
+  }
+
+  /* When the burger menu is active, change the color */
+  .burger-menu.active .burger-line {
+    background-color: white;
+  }
+
+  /* When the menu text is active, change the color */
+  .menu-text.active {
+    color: white;
+  }
+
+  /* Nav List Styling */
+  .nav-menu ul {
+    margin-top: 20%;
+    list-style-type: none;
+  }
+
+  .nav-menu ul li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .nav-menu .nav-logo {
+    position: absolute;
+    top: 4rem; /* Position 1rem from the top */
+    right: 1rem; /* Position 1rem from the right */
+    width: 60px; /* Adjust logo width */
   }
 
   /* Responsive Adjustments */
