@@ -40,9 +40,11 @@ const { images, title, subtitle } = Astro.props;
   </div>
 
   <!-- Arrow Icon -->
-  <div class="hero-arrow">
-    <i class="fas fa-chevron-down"></i>
-  </div>
+  <a href="#footer">
+    <div class="hero-arrow">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </a>
 </section>
 
 <style>
@@ -116,9 +118,9 @@ const { images, title, subtitle } = Astro.props;
 
   /* Logo and Footer */
   .hero-footer {
-    margin-top: 2rem; /* Retain the current spacing from other elements */
+    margin-top: 2.7rem; /* Retain the current spacing from other elements */
     position: relative; /* Enable positioning relative to its normal flow */
-    top: -100px; /* Adjust this value to move it higher */
+    top: -70px; /* Adjust this value to move it higher */
     left: 320px; /* Adjust this value to move it to the right */
     text-align: center; /* Keep the text centered within the footer */
   }
@@ -134,15 +136,16 @@ const { images, title, subtitle } = Astro.props;
     font-size: 0.65rem;
     margin-top: 0.5rem;
     position: relative;
-    top: -48px; /* Adjust this value to move it higher */
+    top: -15px; /* Adjust this value to move it higher */
     left: 5px;
   }
 
   /* Arrow Animation */
   .hero-arrow {
-    margin-top: -8rem;
+    margin-top: -4rem;
     animation: bounce 2s infinite;
     font-size: xx-large;
+    color: #000000;
   }
 
   @keyframes bounce {

@@ -196,17 +196,20 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
   }
+
   .nav-menu .nav-logo {
-    position: absolute;
-    top: 1rem; /* Position 1rem from the top */
-    right: 1rem; /* Position 1rem from the right */
+    position: relative; /* Allow movement of the logo */
+    top: -1rem; /* Adjust vertically */
+    left: 13rem; /* Adjust horizontally */
     width: 40px; /* Adjust logo width */
+    z-index: 110; /* Ensure it’s on top of other elements */
+    pointer-events: auto; /* Enable clicking on the logo */
   }
 
   /* Social links */
 
   .social-links {
-    margin-top: 100%;
+    margin-top: 80%;
     display: flex;
     gap: 20px;
     align-items: center;

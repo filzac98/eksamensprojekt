@@ -1,0 +1,163 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Button from "../../components/Button.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://auwnnztjgrxcczjqefjt.supabase.co/rest/v1/karruselartists?select=*",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1d25uenRqZ3J4Y2N6anFlZmp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk1MDY5MzcsImV4cCI6MjA0NTA4MjkzN30.FNkYAbMhfIXSdJ3x9LyoOyjn_O43S4bi5tZaNPxySvM",
+      },
+    }
+  ).then((response) => response.json());
+
+  return data.map((card) => {
+    return {
+      params: { card: card.slug },
+      props: { card },
+    };
+  });
+}
+
+const { card } = Astro.props;
+---
+
+<MainLayout title={card.title}>
+  <section class="artist-grid">
+    <div class="artist-image-wrapper">
+      <img
+        src={`/images/${card.image}`}
+        alt={card.title}
+        class="artist-image"
+      />
+      <a href="/lineup#artists" class="go-back-btn">Go Back to Artists</a>
+    </div>
+    <div class="artist-info">
+      <h2>{card.title}</h2>
+      <p>{card.content}</p>
+      <Button variant="primary" size="medium" buttonlink="/tickets"
+        >Buy Tickets</Button
+      >
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Button style for "Go Back to Artists" */
+  .go-back-btn {
+    position: absolute;
+    top: 11%;
+    padding: 7px 12px;
+    background-color: #c38156;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: "Lexend Mega", sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .go-back-btn:hover {
+    background-color: #a36845;
+  }
+  /* Main layout grid */
+
+  .artist-image {
+    all: unset; /* Resets all inherited styles */
+  }
+  .artist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    align-items: start;
+  }
+
+  /* Image section styling */
+  .artist-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .artist-image {
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  /* Text content styling */
+  .artist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h2 {
+    font-family: "Lexend Mega", sans-serif;
+    font-size: 36px;
+    color: #ecd9b9;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 18px;
+    color: #c9c9c9;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  /* Website link */
+  .artist-website {
+    color: #f2f2f2;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 15px;
+  }
+
+  /* Button styling */
+  .buy-tickets {
+    background-color: #c38156;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+  }
+
+  .buy-tickets:hover {
+    background-color: #a36845;
+  }
+
+  /* Additional media section styling */
+  .artist-extras {
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+
+  .spotify-embed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 400px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .artist-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

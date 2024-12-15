@@ -1,6 +1,8 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+import "../styles/global.css";
 
 const heroImages = [
   { src: "/images/mona_lisa2.webp", alt: "Mona Lisa with Cards 1" },
@@ -19,4 +21,46 @@ const heroImages = [
       "the refined cards reimagined",
     ]}
   />
+  <section class="latest-section">
+    <div class="line"></div>
+    <h2>LATEST DECKS</h2>
+    <div class="line"></div>
+    <!-- Line between header and categories -->
+
+    <div class="latest-grid">
+      <Card
+        title="OLIVER"
+        imageSrc="/images/oliver.webp"
+        href="/"
+        alt="Oliver"
+        price="25$"
+      />
+      <Card
+        title="SMOKE & MIRROR RED EDITION"
+        imageSrc="/images/smred.webp"
+        href="/"
+        alt="SMOKE & MIRROR RED EDITION"
+        price="18$"
+      />
+      <Card
+        title="SMOKE & MIRROR BLUE EDITION"
+        imageSrc="/images/smblue.webp"
+        href="/"
+        alt="SMOKE & MIRROR BLUE EDITION"
+        price="18$"
+      />
+      <Card
+        title="SMOKE & MIRROR GARDEN EDITION"
+        imageSrc="/images/smgarden.webp"
+        href="/"
+        alt="SMOKE & MIRROR Garden EDITION"
+        price="18$"
+      />
+    </div>
+
+    <div class="line"></div>
+    <div class="line" style="margin-top: 3%;"></div>
+
+    <!-- Line after categories -->
+  </section>
 </MainLayout>

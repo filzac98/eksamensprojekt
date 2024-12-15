@@ -1,0 +1,63 @@
+/****** Global Styles *******/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/******** Category Card and styles ***********/
+.latest-section {
+  padding: 20px 10px; /* Adjust as needed */
+}
+
+.latest-section h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-left: 1%;
+}
+
+.line {
+  border-top: 1px solid #d9d9d9; /* Adjust the color as needed */
+  margin: 10px auto; /* Center the line */
+  width: 100%; /* Adjust the width as needed */
+}
+
+.latest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 columns */
+  gap: 20px; /* Space between the categories */
+  max-width: 1400px; /* Center the grid within a max width */
+  margin: 0 auto; /* Center the grid */
+}
+
+.latest-card {
+  margin-top: 10%;
+  overflow: hidden; /* Prevent overflow */
+  transition: transform 0.3s ease; /* Add transition for hover effect */
+  text-decoration: none;
+}
+
+.latest-card:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.latest-card h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-size: medium;
+}
+
+.latest-card p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #6e6e6e;
+  font-size: small;
+}
+
+.latest-card img {
+  width: 100%; /* Make images responsive */
+  object-fit: cover; /* Ensure images cover the box */
+  border-radius: 8px;
+}

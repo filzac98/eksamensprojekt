@@ -1,111 +1,175 @@
----
+<footer class="footer" id="footer">
+  <section class="footer-newsletter">
+    <h2>Get the latest <br /><span>IMPORTANT DOCUMENTS</span></h2>
+    <form class="newsletter-form">
+      <input
+        type="email"
+        placeholder="Your email address"
+        aria-label="Your email address"
+      />
+      <button type="submit" aria-label="Submit">
+        <span class="arrow-button">→</span>
+      </button>
+    </form>
+  </section>
 
----
-
-<footer class="footer">
-  <a href="#"
-    ><img
-      src="/images/logo.png"
-      alt="Logo"
-      class="footer-logo"
-      style="margin-bottom: 3%;"
-    />
-  </a>
-
-  <!-- Footer Bottom -->
-  <div class="footer-bottom">
-    <div class="social-links">
-      <a
-        href="https://www.instagram.com/dealersgrip/"
-        target="_blank"
-        class="social-link"
-      >
-        <i class="fab fa-instagram"></i>
+  <section class="footer-center">
+    <div class="social-icons">
+      <a href="https://www.youtube.com/@dealersgrip" target="_blank">
+        <i class="fab fa-youtube"></i>
       </a>
-      <a
-        href="https://www.facebook.com/dealersgrip"
-        target="_blank"
-        class="social-link"
-      >
-        <i class="fab fa-facebook-square"></i>
+      <a href="https://www.instagram.com/dealersgrip/" target="_blank">
+        <i class="fab fa-instagram"></i>
       </a>
       <a
         href="https://www.linkedin.com/in/oliversgrd/?originalSubdomain=dk"
         target="_blank"
-        class="social-link"
       >
         <i class="fab fa-linkedin"></i>
       </a>
-      <a
-        href="https://www.youtube.com/@dealersgrip"
-        target="_blank"
-        class="social-link"
-      >
-        <i class="fab fa-youtube"></i>
-      </a>
     </div>
-  </div>
+    <ul class="footer-links">
+      <li><a href="#">privacy policy</a></li>
+      <li><a href="#">shipping & return</a></li>
+      <li><a href="#">FAQ</a></li>
+    </ul>
+  </section>
 
-  <style>
-    * {
-      margin: 0 auto;
-    }
-    .footer {
-      background-color: #a7e9af; /* Soft green */
-      padding: 2rem;
-      text-align: center;
-      font-family: "Kantumruy Pro", sans-serif;
-      margin: 0 auto;
-    }
+  <section class="footer-info">
+    <p>
+      Exploratory cardistry & card company run by Oliver Sogard. <br />
+      <br />
+      Established in 2014, our primary aim is to strengthen cardistry culture, challenge
+      industry norms, and re-explore playing cards as a self-standing object of artistic
+      expression in the modern world. <br />
 
-    .footer-bottom {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-    }
+      Put your thoughts on paper.
+      <br />
+      <br />
+    </p>
+    <p>
+      dealersgrip <br />
+      <a href="mailto:contact@dealersgrip.com">contact@dealersgrip.com</a><br />
+      CVR: 38801856 <br />
+      © 2014—2024 dealersgrip <br />
+      All Rights Reserved
+    </p>
+  </section>
 
-    .footer-logo {
-      max-height: 50px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .social-link {
-      color: #ffffff;
-      font-size: 38px;
-      text-decoration: none;
-    }
-
-    .social-link:hover {
-      color: var(--hover-color);
-    }
-
-    @media (max-width: 1024px) {
-      /* Adjust logo size for tablets */
-      .footer-logo {
-        max-height: 45px;
-      }
-    }
-
-    /* Mobile First */
-    @media (max-width: 768px) {
-      /* Make the footer logo smaller */
-      .footer-logo {
-        max-height: 40px;
-      }
-
-      /* Adjust the social links layout */
-      .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-
-    /* Tablet */
-  </style>
+  <a href="#" class="scroll-to-top" aria-label="Scroll to top">
+    <div class="hero-arrow footer-arrow">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+  </a>
 </footer>
+
+<style>
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #181818; /* Dark background */
+    color: #ffffff; /* White text */
+    padding: 4rem 2rem;
+    gap: 2rem;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .footer-newsletter h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .footer-newsletter span {
+    font-weight: bold;
+  }
+
+  .newsletter-form {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 1rem;
+  }
+
+  .newsletter-form button {
+    background-color: #5fcf80; /* Green button */
+    color: #000;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+
+  .footer-center {
+    text-align: center;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icons a {
+    color: #ffffff;
+    font-size: 2rem;
+    transition: color 0.3s;
+  }
+
+  .social-icons a:hover {
+    color: #5fcf80; /* Green on hover */
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin: 0.5rem 0;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: #5fcf80;
+  }
+
+  .footer-info {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .footer-info a {
+    color: #5fcf80;
+    text-decoration: none;
+  }
+
+  /* Footer Scroll-to-Top Arrow */
+  /* Centered Footer Arrow */
+  .footer-arrow {
+    position: absolute; /* Fixes the arrow to the viewport */
+    bottom: 2rem; /* Adjusts the distance from the bottom */
+    left: 49%; /* Moves the arrow to the center */
+    transform: translateX(-50%); /* Ensures perfect centering */
+    font-size: xx-large;
+    color: #ffffff; /* Matches the arrow color */
+    animation: bounce 2s infinite; /* Keeps the bounce animation */
+  }
+  .footer-arrow i {
+    display: block; /* Ensure proper alignment */
+  }
+</style>

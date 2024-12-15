@@ -1,0 +1,57 @@
+---
+const {variant, size, buttonlink} = Astro.props;
+---
+
+<a href={buttonlink} class={variant + " " + size}><slot /></a>
+
+<style>
+    a {
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none; /* Remove underline from link */
+        margin: 0 auto;
+    }
+
+    /* Primary button with your original styling */
+    .primary {
+        background-color: #c38156;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-family: "Lexend Mega", sans-serif;
+    }
+
+    .primary:hover {
+        background-color: #a36845;
+    }
+
+    /* Secondary button (lighter version or outline) */
+    .secondary {
+        background-color: white;
+        color: #c38156; /* Reusing your primary color */
+        border: 2px solid #c38156; /* Outline for the secondary button */
+        font-size: 16px;
+    }
+
+    .secondary:hover {
+        background-color: #f5f5f5; /* Light background on hover */
+        color: #a36845; /* Hover color change */
+        border-color: #a36845; /* Border color change on hover */
+    }
+
+    /* Size classes */
+    .small {
+        font-size: 1rem;
+    }
+
+    .medium {
+        font-size: 1.5rem;
+    }
+
+    .large {
+        font-size: 2rem;
+    }
+</style>
