@@ -61,3 +61,60 @@ html {
   object-fit: cover; /* Ensure images cover the box */
   border-radius: 8px;
 }
+
+.nostalgia-section {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+.nostalgia-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nostalgia-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure equal spacing and full height in each column */
+  text-align: center;
+  padding: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  height: 100%; /* Makes sure the columns fill the available space equally */
+  flex-grow: 1; /* Forces both columns to expand equally */
+}
+/* Add a vertical line between the columns */
+.nostalgia-item:not(:last-child) {
+  border-right: 1px solid #d9d9d9; /* Adjust the color of the line */
+}
+
+.nostalgia-item h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.nostalgia-item p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Ensures the paragraph content grows equally in both boxes */
+  text-align: left;
+}
+
+.nostalgia-button {
+  display: inline-block;
+  padding: 10px 20px;
+  align-self: center;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.nostalgia-button:hover {
+  background-color: #333;
+}
