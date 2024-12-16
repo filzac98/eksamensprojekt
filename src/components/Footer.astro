@@ -172,4 +172,71 @@
   .footer-arrow i {
     display: block; /* Ensure proper alignment */
   }
+
+  /* Responsive styles */
+  @media (max-width: 1024px) {
+    .footer {
+      grid-template-columns: 1fr 1fr; /* Two columns for tablet screens */
+      padding: 3rem 2rem;
+    }
+
+    .footer-newsletter h2 {
+      font-size: 2rem; /* Slightly smaller heading */
+    }
+
+    .social-icons {
+      gap: 1rem; /* Reduced gap for tablet */
+    }
+
+    .footer-links {
+      text-align: center; /* Center links on tablet */
+    }
+
+    .footer-info {
+      font-size: 1rem; /* Increase font size for readability */
+    }
+
+    .footer-arrow {
+      left: 50%; /* Ensure the arrow stays centered */
+      bottom: 1.5rem; /* Adjust position */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      grid-template-columns: 1fr; /* Single column for mobile */
+      padding: 2rem 1rem;
+    }
+
+    .footer-newsletter h2 {
+      font-size: 1.5rem; /* Smaller heading for mobile */
+    }
+
+    .newsletter-form input {
+      padding: 0.75rem; /* Adjust input padding */
+    }
+
+    .newsletter-form button {
+      padding: 0.75rem;
+      font-size: 1rem; /* Adjust button font size */
+    }
+
+    .social-icons {
+      gap: 1rem;
+    }
+
+    .footer-links {
+      text-align: center;
+    }
+
+    .footer-info {
+      font-size: 0.8rem; /* Smaller text on mobile */
+    }
+
+    .footer-arrow {
+      left: 50%;
+      bottom: 1rem;
+      font-size: large; /* Adjust arrow size */
+    }
+  }
 </style>

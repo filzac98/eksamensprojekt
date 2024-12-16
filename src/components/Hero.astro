@@ -160,40 +160,40 @@ const { images, title, subtitle } = Astro.props;
 
   /* Responsive Adjustments */
   @media (max-width: 768px) {
-    .hero-images {
-      flex-direction: column;
+    .hero-image {
+      margin-top: 14%;
+      max-width: 130px;
     }
 
-    .hero-image {
-      max-width: 150px;
+    .nav-list {
+      display: none;
+    }
+
+    .hero-footer {
+      top: -75px; /* Adjust this value to move it higher */
+      left: 120px; /* Adjust this value to move it to the right */
+    }
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 1000;
     }
 
     .hero-nav {
-      bottom: 10%;
-      left: 5%;
-      padding: 0.5rem;
+      position: absolute;
+      left: 1%;
+      top: 8%;
     }
-
-    .nav-list a {
-      font-size: 0.875rem;
-    }
-    .hero-footer {
-      top: -20px; /* Adjust this value to move it higher */
-      left: 0px; /* Adjust this value to move it to the right */
-    }
-    .hero-title {
-      font-size: 1.2rem;
-      font-weight: 400;
+    .hero-arrow {
+      display:;
     }
 
     .hero-subtitle {
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: start;
-      font-size: 0.65rem;
-      margin-top: 0.5rem;
-      position: relative;
-      top: -18px; /* Adjust this value to move it higher */
-      left: 5px;
+      margin-top: 5%;
+      font-size: xx-small;
+    }
+
+    .hero-arrow {
+      display: none;
     }
   }
 </style>

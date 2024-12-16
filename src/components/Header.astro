@@ -104,6 +104,7 @@
     background-color: black;
     border-radius: 2px;
     transition: all 0.3s ease;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
   }
 
   .top-line {
@@ -138,6 +139,14 @@
     transform: rotate(-45deg) translate(-8px, -9px); /* Rotate and shift to form the bottom of "X" */
   }
 
+  /* Apply hover effect only when burger-menu is NOT active */
+  .burger-menu:not(.active):hover .top-line {
+    transform: translateX(12px);
+  }
+
+  .burger-menu:not(.active):hover .bottom-line {
+    transform: translateX(-12px);
+  }
   /* Menu Text */
   .menu-text {
     font-family: Arial, Helvetica, sans-serif;
@@ -232,11 +241,34 @@
     }
 
     .menu-text {
-      font-size: 0.875rem;
+      order: -1;
     }
 
     .cart-icon {
       font-size: 1.25rem;
+    }
+
+    .menu-icon {
+      margin-left: auto; /* Push burger menu to the right */
+    }
+    /* Move the nav menu off-screen to the right initially */
+    /* Updated Nav Menu */
+
+    .nav-menu .nav-logo {
+      top: 0;
+      left: 0;
+      width: 40px;
+    }
+    .nav-menu {
+      width: 100%; /* Adjust width */
+    }
+
+    /* When the 'active' class is added, show the menu */
+
+    /* Social links */
+
+    .social-links {
+      margin-top: 20%;
     }
   }
 </style>
