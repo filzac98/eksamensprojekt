@@ -194,13 +194,6 @@ html {
   text-align: left; /* Align text to the left */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .kiosk-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-  }
-}
-
 @media (max-width: 480px) {
   .kiosk-grid {
     grid-template-columns: 1fr; /* Single column on small screens */

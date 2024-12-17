@@ -3,7 +3,7 @@ const { data } = Astro.props;
 ---
 
 <div class="kiosk-grid">
-  <a href={`/kiosk/${data.slug}`} class="kiosk-link">
+  <a href={`/decks/${data.slug}`} class="kiosk-link">
     <article class="kiosk-card">
       <img src={`/images/${data.img}`} alt={data.name} class="kiosk-image" />
     </article>
