@@ -235,13 +235,14 @@ const { title, currentPage } = Astro.props; // Accept currentPage as a prop
   }
 
   .social-link:hover {
-    color: var(--hover-color);
+    color: #00b388;
   }
 
   /* Responsive Adjustments */
   @media (max-width: 768px) {
     .header {
       padding: 0.5rem 1rem;
+      flex-direction: row-reverse; /* Reverse item order: burger menu -> cart icon */
     }
 
     .menu-text {
@@ -265,6 +266,10 @@ const { title, currentPage } = Astro.props; // Accept currentPage as a prop
     }
     .nav-menu {
       width: 100%; /* Adjust width */
+    }
+
+    .nav-menu.active:has(+ .cart-icon) + .cart-icon {
+      display: none;
     }
 
     /* When the 'active' class is added, show the menu */
