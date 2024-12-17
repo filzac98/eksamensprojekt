@@ -1,0 +1,35 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Products from "../components/Products.astro";
+
+const apiKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqampzY2F3dmVmbnhrdXBhaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzYwNzgsImV4cCI6MjA0ODExMjA3OH0.mTLqZh0sSiFXO8M_cW7oiyPzL1R_xdMpfMoxMtGCVCk";
+
+const data = await fetch(
+  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey: apiKey,
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+  }
+).then((res) => res.json());
+
+console.log(data);
+---
+
+<MainLayout title="Kiosk" currentPage="Kiosk">
+  <section class="kiosk-grid" id="kiosk">
+    {
+      data.length > 0 ? (
+        data.map((name) => {
+          return <Products data={name} />;
+        })
+      ) : (
+        <p>No product found.</p> // Display a message if no artists are found
+      )
+    }
+  </section>
+</MainLayout>

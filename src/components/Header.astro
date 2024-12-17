@@ -1,3 +1,7 @@
+---
+const { title, currentPage } = Astro.props; // Accept currentPage as a prop
+---
+
 <header class="header">
   <div class="menu-icon">
     <div class="burger-menu">
@@ -5,7 +9,7 @@
       <div class="burger-line middle-line"></div>
       <div class="burger-line bottom-line"></div>
     </div>
-    <p class="menu-text">menu</p>
+    <p class="menu-text">{currentPage || "Home"}</p>
   </div>
   <i class="fas fa-shopping-bag cart-icon"> </i>
 </header>
@@ -15,8 +19,8 @@
   <a href="/">
     <img src="/images/whitelogo.png" alt="Home" class="nav-logo" />
   </a>
-  <ul>
-    <li><a href="#">kiosk</a></li>
+  <ul class="header-nav-list">
+    <li><a href="/kiosk">kiosk</a></li>
     <li><a href="#">archive</a></li>
     <li><a href="#">explore</a></li>
     <li><a href="#">contact</a></li>
@@ -208,7 +212,7 @@
 
   .nav-menu .nav-logo {
     position: relative; /* Allow movement of the logo */
-    top: -1rem; /* Adjust vertically */
+    top: -1.3rem; /* Adjust vertically */
     left: 13rem; /* Adjust horizontally */
     width: 40px; /* Adjust logo width */
     z-index: 110; /* Ensure it’s on top of other elements */

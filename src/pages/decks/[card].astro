@@ -4,12 +4,12 @@ import Button from "../../components/Button.astro";
 
 export async function getStaticPaths() {
   const data = await fetch(
-    "https://auwnnztjgrxcczjqefjt.supabase.co/rest/v1/karruselartists?select=*",
+    "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*",
     {
       method: "GET",
       headers: {
         apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF1d25uenRqZ3J4Y2N6anFlZmp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk1MDY5MzcsImV4cCI6MjA0NTA4MjkzN30.FNkYAbMhfIXSdJ3x9LyoOyjn_O43S4bi5tZaNPxySvM",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqampzY2F3dmVmbnhrdXBhaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzYwNzgsImV4cCI6MjA0ODExMjA3OH0.mTLqZh0sSiFXO8M_cW7oiyPzL1R_xdMpfMoxMtGCVCk",
       },
     }
   ).then((response) => response.json());
@@ -25,18 +25,14 @@ export async function getStaticPaths() {
 const { card } = Astro.props;
 ---
 
-<MainLayout title={card.title}>
-  <section class="artist-grid">
-    <div class="artist-image-wrapper">
-      <img
-        src={`/images/${card.image}`}
-        alt={card.title}
-        class="artist-image"
-      />
-      <a href="/lineup#artists" class="go-back-btn">Go Back to Artists</a>
+<MainLayout title={card.name}>
+  <section class="single-grid">
+    <div class="single-image-wrapper">
+      <img src={`/images/${card.img}`} alt={card.name} class="single-image" />
+      <a href="/kiosk#decks" class="go-back-btn">Go Back to Artists</a>
     </div>
-    <div class="artist-info">
-      <h2>{card.title}</h2>
+    <div class="single-info">
+      <h2>{card.name}</h2>
       <p>{card.content}</p>
       <Button variant="primary" size="medium" buttonlink="/tickets"
         >Buy Tickets</Button
@@ -65,10 +61,10 @@ const { card } = Astro.props;
   }
   /* Main layout grid */
 
-  .artist-image {
+  .single-image {
     all: unset; /* Resets all inherited styles */
   }
-  .artist-grid {
+  .single-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -79,20 +75,20 @@ const { card } = Astro.props;
   }
 
   /* Image section styling */
-  .artist-image-wrapper {
+  .single-image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .artist-image {
+  .single-image {
     max-width: 100%;
     border-radius: 8px;
     object-fit: cover;
   }
 
   /* Text content styling */
-  .artist-info {
+  .single-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,7 +110,7 @@ const { card } = Astro.props;
   }
 
   /* Website link */
-  .artist-website {
+  .single-website {
     color: #f2f2f2;
     font-size: 16px;
     text-decoration: none;
@@ -138,7 +134,7 @@ const { card } = Astro.props;
   }
 
   /* Additional media section styling */
-  .artist-extras {
+  .single-extras {
     max-width: 1200px;
     margin: 40px auto;
   }
@@ -155,7 +151,7 @@ const { card } = Astro.props;
   }
 
   @media (max-width: 768px) {
-    .artist-grid {
+    .single-grid {
       display: grid;
       grid-template-columns: 1fr;
     }
