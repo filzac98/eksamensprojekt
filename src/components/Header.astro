@@ -1,5 +1,5 @@
 ---
-const { title, currentPage } = Astro.props; // Accept currentPage as a prop
+const { currentPage } = Astro.props; // Accept currentPage as a prop
 ---
 
 <header class="header">
@@ -11,7 +11,32 @@ const { title, currentPage } = Astro.props; // Accept currentPage as a prop
     </div>
     <p class="menu-text">{currentPage || "Home"}</p>
   </div>
-  <i class="fas fa-shopping-bag cart-icon"> </i>
+
+  <button class="fas fa-shopping-bag cart-icon" id="cart-icon"> </button>
+
+  <!-- Sliding Cart Overlay -->
+  <div id="cart-header" class="cart-header">
+    <div class="cart-content">
+      <button id="close-cart-icon" class="close-cart-icon">&times;</button>
+      <h2>Empty Cart <span>(0 item)</span></h2>
+      <div class="cart-item">
+        <img src="/images/mona_lisa1.webp" alt="Cart Item Image" />
+        <div class="cart-details">
+          <h3>MONA LISA</h3>
+          <p>0$</p>
+          <label>
+            Quantity:
+            <input type="number" min="1" value="1" />
+          </label>
+          <a href="#" class="remove-item">Remove</a>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <button class="checkout-btn">CHECKOUT • 0$</button>
+        <p class="shipping-text">Shipping & taxes calculated at checkout</p>
+      </div>
+    </div>
+  </div>
 </header>
 
 <!-- Add a nav list -->
@@ -170,9 +195,19 @@ const { title, currentPage } = Astro.props; // Accept currentPage as a prop
   }
 
   /* Cart Icon */
+
   .cart-icon {
-    font-size: 1.5rem;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .cart-icon:hover {
+    background-color: #00b388;
   }
 
   .nav-menu {
@@ -220,6 +255,136 @@ const { title, currentPage } = Astro.props; // Accept currentPage as a prop
     pointer-events: auto; /* Enable clicking on the logo */
   }
 
+  /* Sliding Cart Overlay */
+  .cart-header {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Column layout */
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .cart-header.active {
+    right: 0;
+  }
+
+  .cart-content {
+    flex: 1; /* Allow it to take remaining space */
+    overflow-y: auto; /* Scroll if needed */
+  }
+
+  .cart-content h2 {
+    font-size: 24px;
+    color: #000;
+  }
+  .cart-content h2 span {
+    font-size: 14px; /* Smaller "(1 item)" */
+    font-weight: normal;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .cart-item img {
+    width: 100px;
+    border-radius: 5px;
+  }
+
+  .cart-details h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .cart-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 18px;
+    color: #6e6e6e;
+  }
+  .cart-details label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .cart-details input[type="number"] {
+    width: 50px; /* Smaller quantity box */
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  .close-cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 42px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* Checkout Section: Bottom */
+  .cart-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto; /* Push to bottom */
+  }
+  .shipping-text {
+    color: #6e6e6e;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .checkout-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .checkout-btn:hover {
+    background-color: #00b388;
+  }
+
+  .remove-item {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #00b388;
+  }
   /* Social links */
 
   .social-links {

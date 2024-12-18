@@ -3,20 +3,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const addToCartBtn = document.getElementById("add-to-cart");
   const closeCartBtn = document.getElementById("close-cart");
 
-  // Show cart when "Add to Cart" is clicked
-  addToCartBtn.addEventListener("click", () => {
-    cartOverlay.classList.add("active");
-  });
+  const cartIcon = document.getElementById("cart-icon");
+  const cartHeader = document.getElementById("cart-header");
+  const closeCartIcon = document.getElementById("close-cart-icon");
 
-  // Hide cart when close button is clicked
-  closeCartBtn.addEventListener("click", () => {
-    cartOverlay.classList.remove("active");
-  });
+  if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", () => {
+      cartOverlay?.classList.add("active");
+    });
+  }
 
-  // Optional: Close the cart when clicking outside it
+  if (closeCartBtn) {
+    closeCartBtn.addEventListener("click", () => {
+      cartOverlay?.classList.remove("active");
+    });
+  }
+
+  if (cartIcon) {
+    cartIcon.addEventListener("click", () => {
+      cartHeader?.classList.add("active");
+    });
+  }
+
+  if (closeCartIcon) {
+    closeCartIcon.addEventListener("click", () => {
+      cartHeader?.classList.remove("active");
+    });
+  }
+
+  // Close cart when clicking outside
   window.addEventListener("click", (e) => {
     if (e.target === cartOverlay) {
-      cartOverlay.classList.remove("active");
+      cartOverlay?.classList.remove("active");
+    }
+    if (e.target === cartHeader) {
+      cartHeader?.classList.remove("active");
     }
   });
 });

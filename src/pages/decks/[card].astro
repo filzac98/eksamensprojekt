@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import Button from "../../components/Button.astro";
 
 export async function getStaticPaths() {
   const data = await fetch(
@@ -51,7 +50,6 @@ const { card } = Astro.props;
             aria-label="Quantity"
           />
         </div>
-        <!-- Add to Cart Button -->
         <!-- Add to Cart Button -->
         <button id="add-to-cart" class="add-to-cart-btn">ADD TO CART</button>
       </div>
