@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 const { card } = Astro.props;
 ---
 
-<MainLayout title={card.name}>
+<MainLayout title={card.name} currentPage="Kiosk">
   <section class="single-grid">
     <!-- Left side: Full Image -->
     <div class="single-image-wrapper">
@@ -295,7 +295,7 @@ const { card } = Astro.props;
 
   /* Add to Cart Button */
   .add-to-cart-btn {
-    background-color: #c38156;
+    background-color: #000000;
     color: #fff;
     border: none;
     border-radius: 5px;
