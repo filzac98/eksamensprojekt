@@ -1,11 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cartOverlay = document.getElementById("cart-overlay");
+  const cartOverlayBackground = document.getElementById(
+    "cart-overlay-background"
+  );
   const addToCartBtn = document.getElementById("add-to-cart");
   const closeCartBtn = document.getElementById("close-cart");
 
   const cartIcon = document.getElementById("cart-icon");
   const cartHeader = document.getElementById("cart-header");
   const closeCartIcon = document.getElementById("close-cart-icon");
+
+  function showCart() {
+    cartOverlay?.classList.add("active");
+    cartOverlayBackground?.classList.add("active");
+  }
+
+  function hideCart() {
+    cartOverlay?.classList.remove("active");
+    cartOverlayBackground?.classList.remove("active");
+  }
 
   if (addToCartBtn) {
     addToCartBtn.addEventListener("click", () => {
@@ -30,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cartHeader?.classList.remove("active");
     });
   }
+  // Close cart when clicking outside the cart overlay
+  cartOverlayBackground.addEventListener("click", hideCart);
 
   // Close cart when clicking outside
   window.addEventListener("click", (e) => {

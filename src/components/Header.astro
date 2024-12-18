@@ -445,5 +445,18 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     .social-links {
       margin-top: 20%;
     }
+
+    .cart-header {
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      height: 50%; /* Adjust the height as needed */
+      transform: translateY(-100%); /* Hidden above the screen initially */
+      transition: transform 0.3s ease-in-out;
+    }
+    .cart-header.active {
+      transform: translateY(0); /* Slide down into view */
+    }
   }
 </style>
