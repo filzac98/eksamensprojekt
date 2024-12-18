@@ -91,7 +91,7 @@ html {
   padding-bottom: 60px;
   height: 100%; /* Makes sure the columns fill the available space equally */
   flex-grow: 1; /* Forces both columns to expand equally */
-  line-height: 1.4em;
+
   transform: translateX(250%); /* Start completely off-screen to the right */
   transition: transform 0.75s ease-in-out; /* Smooth slide-in effect */
 }
@@ -256,5 +256,50 @@ html {
 @media (max-width: 768px) {
   .nostalgia-item h2 {
     font-size: 2rem;
+  }
+
+  .event-grid-3-2 {
+    grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+    padding: 20px; /* Less padding on smaller screens */
+  }
+  #events_img {
+    grid-column: 1 / 3; /* Image takes the full width */
+    grid-row: 4;
+    width: 100%;
+    max-width: 300px; /* Resize image to make it smaller */
+    object-fit: cover; /* Keep the image proportions intact */
+    align-self: center; /* Vertically center the image */
+    margin: 0 auto;
+    margin-bottom: 4%;
+  }
+
+  #events_intro {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    margin-right: 0; /* Remove right margin */
+  }
+
+  #events_dec {
+    grid-column: 1 / 3; /* Make both event sections full-width */
+    grid-row: 2;
+  }
+  #events_nov {
+    grid-column: 1 / 3; /* Make both event sections full-width */
+    grid-row: 3;
+  }
+
+  #events_intro h1 {
+    font-size: 2.5rem; /* Slightly smaller title on mobile */
+  }
+
+  /* Adjust paragraph text size for better readability */
+  #events_intro p {
+    font-size: 1.1rem;
+  }
+
+  /* Make date and location details more compact */
+  #events_nov p,
+  #events_dec p {
+    font-size: 1rem;
   }
 }
