@@ -274,4 +274,18 @@ const { images, title, subtitle } = Astro.props;
       left: 90px; /* Adjust this value to move it to the right */
     }
   }
+  @media (max-width: 470px) {
+    .hero-image {
+      margin-top: 16%;
+      max-width: 115px;
+    }
+
+    .hero-footer {
+      top: -75px; /* Adjust this value to move it higher */
+      left: 90px; /* Adjust this value to move it to the right */
+    }
+    .nav-logo img {
+      max-width: 40px;
+    }
+  }
 </style>
