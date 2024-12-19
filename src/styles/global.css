@@ -91,11 +91,6 @@ html {
   padding-bottom: 60px;
   height: 100%; /* Makes sure the columns fill the available space equally */
   flex-grow: 1; /* Forces both columns to expand equally */
-<<<<<<< HEAD
-
-=======
-  line-height: 1.4em;
->>>>>>> Oliver-Forside-Extension
   transform: translateX(250%); /* Start completely off-screen to the right */
   transition: transform 0.75s ease-in-out; /* Smooth slide-in effect */
 }
@@ -183,7 +178,6 @@ html {
   grid-row: 2;
 }
 
-<<<<<<< HEAD
 /********* Product Card Styles ************/
 /* Container holding the cards */
 .kiosk-grid {
@@ -347,8 +341,6 @@ html {
   }
 }
 
-=======
->>>>>>> Oliver-Forside-Extension
 @media (max-width: 768px) {
   .nostalgia-item h2 {
     font-size: 2rem;
