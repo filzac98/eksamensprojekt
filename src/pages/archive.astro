@@ -1,34 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-
-const apiKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqampzY2F3dmVmbnhrdXBhaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzYwNzgsImV4cCI6MjA0ODExMjA3OH0.mTLqZh0sSiFXO8M_cW7oiyPzL1R_xdMpfMoxMtGCVCk";
-
-// Fetch data for the first grid (youtubeID not null)
-const dataGrid1 = await fetch(
-  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*&type=eq.cardistry",
-  {
-    method: "GET",
-    headers: {
-      apikey: apiKey,
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-  }
-).then((res) => res.json());
-
-// Fetch data for the second grid (name not null)
-const dataGrid2 = await fetch(
-  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*&type=eq.handle",
-  {
-    method: "GET",
-    headers: {
-      apikey: apiKey,
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-  }
-).then((res) => res.json());
 ---
 
 <MainLayout title="Archive" currentPage="Archive">
@@ -107,7 +78,7 @@ const dataGrid2 = await fetch(
       </div>
       <div class="grid-item">
         <img
-          src="/images/originalsepal_deck.webp"
+          src="/images/originalSepal_deck.webp"
           alt="Original Sepal card deck"
         />
       </div>
@@ -119,20 +90,26 @@ const dataGrid2 = await fetch(
 </MainLayout>
 
 <style>
-  /* Style for the header section */
+  /* Global styles */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+
+  /* Explore Header */
   .explore-header {
     display: flex;
-    flex-direction: column; /* Stack the title and subtitle */
-    justify-content: center; /* Vertically center */
-    align-items: center; /* Horizontally center */
-    text-align: center; /* Center text */
-    padding: 50px 20px; /* Add some padding around the header */
-    font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
   }
 
   .explore-header h2 {
-    font-size: 4.4rem; /* Larger title size */
-    margin: 0; /* Remove margin from h2 */
+    font-size: 3rem;
+    margin: 0;
   }
 
   .explore-header .sub-title {
@@ -153,33 +130,77 @@ const dataGrid2 = await fetch(
     font-size: medium;
   }
 
+  /* Grid Styles */
   .grid_1_1_1 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-    gap: 1.5px; /* 2px gap between grid items */
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto; /* Center horizontally */
-    justify-content: center; /* Center the grid horizontally */
-    align-items: center; /* Center the grid vertically */
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+    gap: 15px;
+    padding: 0 10px;
+    width: 90%;
+    max-width: 1800px;
+    margin: 0 auto;
+    margin-bottom: 0.2%;
   }
 
-  /* Grid Items */
   .grid-item {
-    padding: 2px; /* Padding inside each grid item */
-    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8; /* Optional background for visibility */
-    border-radius: 5px; /* Optional rounded corners */
+    overflow: hidden;
   }
 
-  /* Images */
   .grid-item img {
-    max-width: 78rem; /* Maximum image width */
-    max-height: 38.25rem; /* Maximum image height */
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  /* Media Queries */
+
+  /* Tablet view */
+  @media (max-width: 768px) {
+    .explore-header h2 {
+      font-size: 2.5rem;
+    }
+
+    .explore-header .sub-title {
+      font-size: 0.9rem;
+    }
+
+    .grid_1_1_1 {
+      grid-template-columns: repeat(1, 1fr); /* 2 columns on tablet */
+      gap: 10px;
+    }
+
+    .title {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Mobile view */
+  @media (max-width: 480px) {
+    .explore-header h2 {
+      font-size: 2rem;
+    }
+
+    .explore-header .sub-title {
+      font-size: 0.8rem;
+    }
+
+    .grid_1_1_1 {
+      grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .grid-item img {
+      width: 100%;
+      object-fit: contain; /* Ensure images fit in smaller boxes */
+    }
+
+    .title {
+      font-size: 1rem;
+    }
   }
 </style>
