@@ -435,6 +435,15 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
 
   /* Responsive Adjustments */
   @media (max-width: 768px) {
+    .burger-menu {
+      border: none;
+      background-color: transparent;
+    }
+
+    .menu-text {
+      border: none;
+      background-color: transparent;
+    }
     .header {
       padding: 0.5rem 1rem;
       flex-direction: row-reverse; /* Reverse item order: burger menu -> cart icon */
