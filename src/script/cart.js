@@ -10,11 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartHeader = document.getElementById("cart-header");
   const closeCartIcon = document.getElementById("close-cart-icon");
 
+  // Viser overlayet og gør baggrunden mørkere
   function showCart() {
     cartOverlay?.classList.add("active");
     cartOverlayBackground?.classList.add("active");
   }
 
+  // Fjerner overlayet og den mørke baggrund
   function hideCart() {
     cartOverlay?.classList.remove("active");
     cartOverlayBackground?.classList.remove("active");

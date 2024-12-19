@@ -131,9 +131,6 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     cursor: pointer;
     transition: color 0.3s;
     z-index: 103; /* Ensure it stays visible above nav-menu */
-    border: 0px solid white; /* Add a white border */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    background-color: white;
   }
 
   /* Burger Lines */
@@ -191,24 +188,15 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     font-size: 1rem;
     transition: color 0.3s;
     z-index: 10000;
-    border: 0px solid white; /* Add a white border */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    background-color: white;
   }
   /* When the burger menu is active, change the color */
   .burger-menu.active .burger-line {
     background-color: rgb(255, 255, 255);
   }
-  .burger-menu.active {
-    border: 0px solid #1c1c1e; /* Add a white border */
-    background-color: #1c1c1e;
-  }
 
   /* When the menu text is active, change the color */
   .menu-text.active {
     color: rgb(255, 255, 255);
-    border: 2px solid #1c1c1e; /* Add a white border */
-    background-color: #1c1c1e;
   }
 
   /* Cart Icon */
