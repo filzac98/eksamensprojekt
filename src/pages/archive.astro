@@ -1,0 +1,197 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const apiKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqampzY2F3dmVmbnhrdXBhaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzYwNzgsImV4cCI6MjA0ODExMjA3OH0.mTLqZh0sSiFXO8M_cW7oiyPzL1R_xdMpfMoxMtGCVCk";
+
+// Fetch data for the first grid (youtubeID not null)
+const dataGrid1 = await fetch(
+  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*&type=eq.cardistry",
+  {
+    method: "GET",
+    headers: {
+      apikey: apiKey,
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+  }
+).then((res) => res.json());
+
+// Fetch data for the second grid (name not null)
+const dataGrid2 = await fetch(
+  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*&type=eq.handle",
+  {
+    method: "GET",
+    headers: {
+      apikey: apiKey,
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+  }
+).then((res) => res.json());
+---
+
+<MainLayout title="Archive" currentPage="Archive">
+  <section class="explore-header">
+    <h2>Archive<span class="sub-title">RELIVE THE PAST</span></h2>
+  </section>
+  <div class="line"></div>
+  <h3 class="title">LEGACY DECKS</h3>
+  <div class="line"></div>
+  <section class="explore-grid" id="explore"></section>
+  <section>
+    <div class="grid_1_1_1">
+      <div class="grid-item">
+        <img
+          src="/public/images/masterCollection.webp"
+          alt="Master collection box set"
+        />
+      </div>
+      <div class="grid-item">
+        <img src="/public/images/flower_deck.webp" alt="Flower card deck" />
+      </div>
+      <div class="grid-item">
+        <img src="/public/images/holoError.webp" alt="Flower card deck" />
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="grid_1_1_1">
+      <div class="grid-item">
+        <img src="/public/images/ambient_deck.webp" alt="ambient card deck" />
+      </div>
+      <div class="grid-item">
+        <img src="/public/images/cymbal_deck.webp" alt="cymbal card deck" />
+      </div>
+      <div class="grid-item">
+        <img src="/public/images/brush_deck.webp" alt="Brush card deck" />
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="grid_1_1_1">
+      <div class="grid-item">
+        <img src="/public/images/fivetwo_deck.webp" alt="FiveTwo card deck" />
+      </div>
+      <div class="grid-item">
+        <img src="/public/images/gilded_deck.webp" alt="Gilded card deck" />
+      </div>
+      <div class="grid-item">
+        <img
+          src="/public/images/holoError2_deck.webp"
+          alt="Holo Error card deck"
+        />
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="grid_1_1_1">
+      <div class="grid-item">
+        <img
+          src="/public/images/holosepal_deck.webp"
+          alt="Holo Sepal card deck"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="/public/images/originalError_deck.webp"
+          alt="Original Error card deck"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="/public/images/originalFivetwo_deck.webp"
+          alt="Original Five Two card deck"
+        />
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="grid_1_1_1">
+      <div class="grid-item">
+        <img
+          src="/public/images/offworld_deck.webp"
+          alt="Off World card deck"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="/public/images/originalsepal_deck.webp"
+          alt="Original Sepal card deck"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="/public/images/s&m_deck.webp"
+          alt="Original Five Two card deck"
+        />
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Style for the header section */
+  .explore-header {
+    display: flex;
+    flex-direction: column; /* Stack the title and subtitle */
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    text-align: center; /* Center text */
+    padding: 50px 20px; /* Add some padding around the header */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .explore-header h2 {
+    font-size: 4.4rem; /* Larger title size */
+    margin: 0; /* Remove margin from h2 */
+  }
+
+  .explore-header .sub-title {
+    display: block; /* Make the subtitle a block element to go to a new line */
+    font-size: 0.6rem; /* Smaller size for the subtitle */
+    margin-top: 10px; /* Space between the title and subtitle */
+    color: #6e6e6e; /* You can change the color */
+    font-weight: normal; /* Adjust the weight if needed */
+    position: relative;
+    left: 32.5%;
+    margin-top: -4%;
+  }
+
+  .title {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    font-weight: 100;
+    font-size: medium;
+  }
+
+  .grid_1_1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    gap: 1.5px; /* 2px gap between grid items */
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center horizontally */
+    justify-content: center; /* Center the grid horizontally */
+    align-items: center; /* Center the grid vertically */
+  }
+
+  /* Grid Items */
+  .grid-item {
+    padding: 2px; /* Padding inside each grid item */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8; /* Optional background for visibility */
+    border-radius: 5px; /* Optional rounded corners */
+  }
+
+  /* Images */
+  .grid-item img {
+    max-width: 78rem; /* Maximum image width */
+    max-height: 38.25rem; /* Maximum image height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+  }
+</style>
