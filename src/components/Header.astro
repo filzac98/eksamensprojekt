@@ -1,5 +1,5 @@
 ---
-const { currentPage } = Astro.props; // Accept currentPage as a prop
+const { currentPage, currrentNav } = Astro.props; // Accept currentPage as a prop
 ---
 
 <header class="header">
@@ -42,12 +42,12 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
 <!-- Add a nav list -->
 <nav class="nav-menu">
   <a href="/">
-    <img src="/images/whitelogo.png" alt="Home" class="nav-logo" />
+    <img src="/images/whitelogo.webp" alt="Home" class="nav-logo" />
   </a>
   <ul class="header-nav-list">
     <li><a href="/kiosk">kiosk</a></li>
-    <li><a href="#">archive</a></li>
     <li><a href="/explore">explore</a></li>
+    <li><a href="#">archive</a></li>
     <li><a href="#">contact</a></li>
     <li><a href="#">newsletter</a></li>
     <li><a href="#">about</a></li>
@@ -244,6 +244,12 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     font-size: 3rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
+  }
+
+  /* Default nav link styles */
+  .nav-menu ul li a:hover {
+    color: #00b388; /* Green color for hover */
   }
 
   .nav-menu .nav-logo {
