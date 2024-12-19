@@ -130,7 +130,8 @@ html {
 }
 
 .nostalgia-button:hover {
-  background-color: #333;
+  background-color: #00b388;
+  transition: 0.2s;
 }
 
 .event_section {
