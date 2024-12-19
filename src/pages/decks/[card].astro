@@ -13,12 +13,14 @@ export async function getStaticPaths() {
     }
   ).then((response) => response.json());
 
-  return data.map((card) => {
-    return {
-      params: { card: card.slug },
-      props: { card },
-    };
-  });
+  return data
+    .filter((card) => card.slug) // Make sure slug is available
+    .map((card) => {
+      return {
+        params: { card: card.slug }, // Only pass valid slug values
+        props: { card },
+      };
+    });
 }
 
 const { card } = Astro.props;
