@@ -1,0 +1,103 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Explore from "../components/Explore.astro";
+
+const apiKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqampzY2F3dmVmbnhrdXBhaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzYwNzgsImV4cCI6MjA0ODExMjA3OH0.mTLqZh0sSiFXO8M_cW7oiyPzL1R_xdMpfMoxMtGCVCk";
+
+// Fetch data for the first grid (youtubeID not null)
+const dataGrid1 = await fetch(
+  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*&type=eq.cardistry",
+  {
+    method: "GET",
+    headers: {
+      apikey: apiKey,
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+  }
+).then((res) => res.json());
+
+// Fetch data for the second grid (name not null)
+const dataGrid2 = await fetch(
+  "https://jjjjscawvefnxkupahzs.supabase.co/rest/v1/data?select=*&type=eq.handle",
+  {
+    method: "GET",
+    headers: {
+      apikey: apiKey,
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+  }
+).then((res) => res.json());
+---
+
+<MainLayout title="Explore" currentPage="Explore">
+  <section class="explore-header">
+    <h2>Explore <span class="sub-title">BECOME BETTER</span></h2>
+  </section>
+  <div class="line"></div>
+  <h3 class="title">EXPLORE CARDISTRY</h3>
+  <div class="line"></div>
+  <section class="explore-grid" id="explore">
+    {
+      dataGrid1.length > 0 ? (
+        dataGrid1.map((name) => {
+          return <Explore data={name} />;
+        })
+      ) : (
+        <p>No product found.</p> // Display a message if no products are found in grid 1
+      )
+    }
+  </section>
+  <div class="line"></div>
+  <h3 class="title">LEARN NEW HANDLES</h3>
+  <div class="line"></div>
+  <section class="explore-grid" id="explore">
+    {
+      dataGrid2.length > 0 ? (
+        dataGrid2.map((name) => {
+          return <Explore data={name} />;
+        })
+      ) : (
+        <p>No product found.</p> // Display a message if no products are found in grid 2
+      )
+    }
+  </section>
+</MainLayout>
+
+<style>
+  /* Style for the header section */
+  .explore-header {
+    display: flex;
+    flex-direction: column; /* Stack the title and subtitle */
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    text-align: center; /* Center text */
+    padding: 50px 20px; /* Add some padding around the header */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .explore-header h2 {
+    font-size: 4.4rem; /* Larger title size */
+    margin: 0; /* Remove margin from h2 */
+  }
+
+  .explore-header .sub-title {
+    display: block; /* Make the subtitle a block element to go to a new line */
+    font-size: 0.6rem; /* Smaller size for the subtitle */
+    margin-top: 10px; /* Space between the title and subtitle */
+    color: #6e6e6e; /* You can change the color */
+    font-weight: normal; /* Adjust the weight if needed */
+    position: relative;
+    left: 8%;
+    margin-top: -4%;
+  }
+
+  .title {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    font-weight: 100;
+    font-size: medium;
+  }
+</style>

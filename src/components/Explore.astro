@@ -1,0 +1,23 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="explore-grid">
+  <a href={`/decks/${data.slug}`} class="explore-link">
+    <article class="explore-card">
+      <!-- Embed YouTube video dynamically -->
+      <div class="explore-video">
+        <iframe
+          width="100%"
+          height="315"
+          src={`https://www.youtube.com/embed/${data.youtubeID}`}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </article>
+  </a>
+  <div class="explore-info">
+    <h2 class="explore-title">{data.name}</h2>
+  </div>
+</div>
