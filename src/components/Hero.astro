@@ -21,7 +21,7 @@ const { images, title, subtitle } = Astro.props;
       <li><a href="/kiosk">KIOSK</a></li>
       <li><a href="/explore">EXPLORE</a></li>
       <li><a href="/archive">ARCHIVE</a></li>
-      <li><a href="/events">EVENTS</a></li>
+      <li><a href="#events">EVENTS</a></li>
     </ul>
   </nav>
 
@@ -48,6 +48,10 @@ const { images, title, subtitle } = Astro.props;
 </section>
 
 <style>
+  html,
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling globally */
+  }
   .hero {
     margin-top: 8%;
     display: flex;
