@@ -12,7 +12,13 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     <p class="menu-text">{currentPage || "Home"}</p>
   </div>
 
-  <button class="fas fa-shopping-bag cart-icon" id="cart-icon"> </button>
+  <button class="cart-icon" id="cart-icon">
+    <img
+      src="/icons/ShoppingBag.webp"
+      alt="Shopping Bag Icon"
+      class="cart-image"
+    />
+  </button>
 
   <!-- Sliding Cart Overlay -->
   <div id="cart-header" class="cart-header">
@@ -45,12 +51,11 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     <img src="/images/whitelogo.png" alt="Home" class="nav-logo" />
   </a>
   <ul class="header-nav-list">
-    <li><a href="/kiosk">kiosk</a></li>
-    <li><a href="#">archive</a></li>
-    <li><a href="/explore">explore</a></li>
-    <li><a href="#">contact</a></li>
-    <li><a href="#">newsletter</a></li>
-    <li><a href="#">about</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/kiosk">Kiosk</a></li>
+    <li><a href="#">Archive</a></li>
+    <li><a href="/explore">Explore</a></li>
+    <li><a href="/#events">Events</a></li>
   </ul>
   <div class="social-links">
     <a
@@ -197,17 +202,25 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
   /* Cart Icon */
 
   .cart-icon {
-    background-color: #000000;
-    color: #fff;
+    background: none;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+  .cart-image {
+    width: 32px; /* Adjust size as needed */
+    height: auto;
+    display: block;
+    border-radius: 100%;
+  }
   .cart-icon:hover {
     background-color: #00b388;
+    border-radius: 100%;
+  }
+  .cart-icon {
+    border-radius: 100%;
   }
 
   .nav-menu {
@@ -244,6 +257,10 @@ const { currentPage } = Astro.props; // Accept currentPage as a prop
     font-size: 3rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .nav-menu ul li a:hover {
+    color: #00b388;
   }
 
   .nav-menu .nav-logo {
