@@ -134,6 +134,13 @@ html {
   transition: 0.2s;
 }
 
+/* Hide the line by default */
+.nostalgia-section .line {
+  display: none;
+}
+
+/******* EVENT SECTION   ********/
+
 .event_section {
   padding: 50px 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -224,7 +231,6 @@ html {
   transform: translateY(-5px); /* Slight lift */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-/* Text container for title and price */
 
 /* Product title */
 .kiosk-title {
@@ -239,7 +245,6 @@ html {
 .kiosk-type {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-
   color: #6e6e6e;
 }
 .kiosk-info {
@@ -346,8 +351,23 @@ html {
 }
 
 @media (max-width: 768px) {
+  .latest-grid {
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+  }
   .nostalgia-item h2 {
     font-size: 2rem;
+  }
+  .nostalgia-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Two equal columns */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nostalgia-section .line {
+    display: block;
+    margin: 10px 0; /* Adjust margin as needed */
   }
 
   .event-grid-3-2 {
