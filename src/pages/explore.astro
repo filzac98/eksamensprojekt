@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Explore from "../components/Explore.astro";
+import Tricks from "../components/Tricks.astro";
 
 const apiKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqampzY2F3dmVmbnhrdXBhaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI1MzYwNzgsImV4cCI6MjA0ODExMjA3OH0.mTLqZh0sSiFXO8M_cW7oiyPzL1R_xdMpfMoxMtGCVCk";
@@ -43,7 +43,7 @@ const dataGrid2 = await fetch(
     {
       dataGrid1.length > 0 ? (
         dataGrid1.map((name) => {
-          return <Explore data={name} />;
+          return <Tricks data={name} />;
         })
       ) : (
         <p>No product found.</p> // Display a message if no products are found in grid 1
@@ -57,7 +57,7 @@ const dataGrid2 = await fetch(
     {
       dataGrid2.length > 0 ? (
         dataGrid2.map((name) => {
-          return <Explore data={name} />;
+          return <Tricks data={name} />;
         })
       ) : (
         <p>No product found.</p> // Display a message if no products are found in grid 2
