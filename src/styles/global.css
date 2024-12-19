@@ -67,6 +67,22 @@ html {
   border-radius: 8px;
 }
 
+.latest-button {
+  margin-left: auto; /* Ensures the button stays to the right if more elements are added */
+  text-decoration: none; /* Optional: Remove underline */
+  padding: 8px 16px; /* Add padding for the button */
+  background-color: #000000; /* Example background color */
+  color: #fff; /* Example text color */
+  border-radius: 10px; /* Optional: Rounded corners */
+  transition: background-color 0.3s ease; /* Add hover effect */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.latest-button:hover {
+  background-color: #00b388; /* Hover state */
+}
+
 .nostalgia-section {
   display: flex;
   flex-direction: column;
@@ -151,6 +167,11 @@ html {
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 2rem;
   padding: 50px 50px;
+}
+.latest-header {
+  display: flex;
+  align-items: center; /* Align the items vertically */
+  justify-content: space-between; /* Push the button to the far right */
 }
 
 .event-grid-3-2 img {
